@@ -11,7 +11,7 @@ describe('Welcome page', () => {
           .get('/')
           .end((err, res) => {
             expect(res.status).to.equal(200);
-            expect(res.text).to.equal('Welcome to CMPE272 project-Team Nibble');
+            expect(res.text).to.equal('Welcome to CMPE-272 project :Team Nibble');
             done()
           })
       })
