@@ -5,7 +5,7 @@ let expect = chai.expect
 
 chai.use(chaiHttp)
 
-describe('Server', () => {
+describe('Welcome page', () => {
     it('returns 200 ok', done => {
         chai.request(server)
           .get('/')
