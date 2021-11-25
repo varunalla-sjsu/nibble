@@ -8,8 +8,8 @@ const config = {
   auth0Logout: true,
   secret: process.env.secret,
   baseURL: 'http://localhost:3000',
-  clientID: 'UiW4XJj73wRhTqCeXtcZ0wVlm5Obg6UG',
-  issuerBaseURL: 'https://nibbleproj.us.auth0.com'
+  clientID: process.env.clientId,
+  issuerBaseURL: process.env.issuerBaseURL
 };
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
