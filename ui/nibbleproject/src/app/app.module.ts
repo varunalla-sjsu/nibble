@@ -16,7 +16,7 @@ import { PermissionsComponent } from './components/permissions/permissions.compo
 import { EmployeedashboardComponent } from './components/employeedashboard/employeedashboard.component';
 import { HrdashboardComponent } from './components/hrdashboard/hrdashboard.component';
 import { ManagerdashboardComponent } from './components/managerdashboard/managerdashboard.component';
-
+import { MaterialModule } from './modules/styling/material/material.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +36,8 @@ import { ManagerdashboardComponent } from './components/managerdashboard/manager
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
