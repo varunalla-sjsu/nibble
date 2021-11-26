@@ -13,6 +13,9 @@ import { UsersComponent } from './components/users/users.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { AssignroleComponent } from './components/assignrole/assignrole.component';
 import { PermissionsComponent } from './components/permissions/permissions.component';
+import { EmployeedashboardComponent } from './components/employeedashboard/employeedashboard.component';
+import { HrdashboardComponent } from './components/hrdashboard/hrdashboard.component';
+import { ManagerdashboardComponent } from './components/managerdashboard/managerdashboard.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { PermissionsComponent } from './components/permissions/permissions.compo
     UsersComponent,
     RolesComponent,
     AssignroleComponent,
-    PermissionsComponent
+    PermissionsComponent,
+    EmployeedashboardComponent,
+    HrdashboardComponent,
+    ManagerdashboardComponent
   ],
   imports: [
     BrowserModule,
