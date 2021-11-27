@@ -6,4 +6,12 @@ import { Injectable } from '@angular/core';
 export class HrService {
 
   constructor() { }
+
+  async getRequests(){
+    // call to get our APIs to get our allocation and deallocation requests
+    let res;
+    return res;
+  }
+
+
 }
