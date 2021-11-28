@@ -32,7 +32,7 @@ import { MatDividerModule } from '@angular/material/divider'
 import { MatCardModule } from '@angular/material/card'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatTableModule } from '@angular/material/table'
-
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -70,7 +70,8 @@ import { MatTableModule } from '@angular/material/table'
     FlexLayoutModule,
     MatCardModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule
 
   ],
   providers: [],

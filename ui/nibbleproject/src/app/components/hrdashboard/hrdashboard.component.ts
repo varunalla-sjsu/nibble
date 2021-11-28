@@ -32,8 +32,10 @@ const ELEMENT_DATA: UserRequest[] = [
   styleUrls: ['./hrdashboard.component.css']
 })
 export class HrdashboardComponent implements OnInit {
+
+  departments : any;
   
-  displayedColumns: string[] = ['employee', 'raisedby', 'type', 'departmentid'];
+  displayedColumns: string[] = ['employee', 'raisedby', 'type', 'departmentid','action'];
   dataSource : MatTableDataSource<UserRequest>;
 
   
@@ -44,12 +46,13 @@ export class HrdashboardComponent implements OnInit {
   // dataSource: any;
   constructor(private hrservice:HrService , private allocationservice:AllocationService ) {
 
-    this.dataSource = new MatTableDataSource<UserRequest>(ELEMENT_DATA);
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
    }
 
 
-  ngOnInit() : void {
+  async ngOnInit() {
     // this.dataSource.paginator = this.paginator;
+    this.departments = await this.hrservice.getDepartmentsInfo();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -68,14 +71,14 @@ export class HrdashboardComponent implements OnInit {
     });
   }
 
-  // applyFilter(event: Event) {
-  //   const filterValue = (event.target as HTMLInputElement).value;
-  //   this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
 
-  //   if (this.dataSource.paginator) {
-  //     this.dataSource.paginator.firstPage();
-  //   }
-  // }
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
   async action(username:string,status:string){
     
     console.log(username+' : '+status);

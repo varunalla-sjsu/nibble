@@ -2,11 +2,8 @@
 
 <mat-grid-list cols="2" rowHeight="1:1">
     <mat-grid-tile>
-        <h1>Nibble</h1>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
-            <div fxFlex="60">
+        
+            <div fxFlex="80">
                 <h1>Pending resource allocation and deallocation requests</h1>
                 <div class="mat-elevation-z8">
                     <table mat-table [dataSource]="dataSource">
@@ -47,7 +44,7 @@
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
           
-                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+                    <mat-paginator [pageSizeOptions]="[10, 20,100]"></mat-paginator>
                     <button mat-mini-fab color="primary" aria-label="refresh">
                         <mat-icon (click)="refresh()">refresh</mat-icon>
                       </button>
@@ -57,11 +54,29 @@
             <!-- <div fxFlex="40">
                 <app-widget-pie [data]="pieChart"></app-widget-pie>
             </div> -->
-          </div>
+          
+        
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div>
+        <mat-list role="list" *ngFor="let department of departments">
+            <!-- <mat-list-item role="listitem"><mat-card-subtitle>{{ingrid.ingredient}}</mat-card-subtitle> </mat-list-item>
+        <mat-list-item role="listitem">{{ingrid.quantity}}</mat-list-item>
+        <mat-list-item role="listitem">{{ingrid.macros}}</mat-list-item> -->
+            <mat-card class="mat-elevation-z4">
+                   <p>
+               
+              <mat-card-subtitle>{{department.department}} </mat-card-subtitle>
+            </p> 
+            <p>
+                <mat-card-subtitle>{{department.employees}}</mat-card-subtitle>
+            </p> 
+              
+            </mat-card>
+          </mat-list>
+
+        </div>
 
     </mat-grid-tile>
-
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
   </mat-grid-list>
   
