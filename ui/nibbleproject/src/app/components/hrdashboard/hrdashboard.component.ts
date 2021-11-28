@@ -9,10 +9,11 @@ import { UserService } from 'src/app/services/user.service';
 
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { HrService } from 'src/app/services/hr.service';
+import { AllocationService } from 'src/app/services/allocation.service';
 
 
 export interface UserRequest {
-  username: string;
+  employee: string;
   raisedBy: string;
   type: string;
   requestid:string;
@@ -20,20 +21,10 @@ export interface UserRequest {
 
 }
 
-const ELEMENT_DATA2: UserRequest[] = [
+const ELEMENT_DATA: UserRequest[] = [
 ];
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' }
-];
+
 
 @Component({
   selector: 'app-hrdashboard',
@@ -42,43 +33,59 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class HrdashboardComponent implements OnInit {
   
+  displayedColumns: string[] = ['employee', 'raisedby', 'type', 'departmentid'];
+  dataSource : MatTableDataSource<UserRequest>;
+
+  
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   // displayedColumns: string[] = ['name','action'];
   // dataSource: any;
-  constructor(private hrservice:HrService ) { }
-  // Highcharts = Highcharts;
-  
-  // bigChart? : any;
-  // cards ? :any;
-  // pieChart ? :any;
+  constructor(private hrservice:HrService , private allocationservice:AllocationService ) {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+    this.dataSource = new MatTableDataSource<UserRequest>(ELEMENT_DATA);
+   }
 
-  // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  // @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
-  // chartOptions = {};
-//  paginator: MatPaginator;
 
-  // constructor(private dashboardService: DashboardService) { }
-
-  ngOnInit() {
+  ngOnInit() : void {
     // this.dataSource.paginator = this.paginator;
   }
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
-  //   this.dataSource.sort = this.sort;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
 
-  //   this.hrservice.getRequests().then((response:any)=>{
-  //     console.log(response);
-  //     this.dataSource=new MatTableDataSource<PeriodicElement>(response);
-  //   });
-    // this.userService.getDietitianReqs().then((response:any)=>{
-    //   console.log(response);
-    //   this.dataSource=new MatTableDataSource<UserRequest>(response);
-    // });
+    this.hrservice.getRequests().then((response:any)=>{
+      console.log(response);
+      this.dataSource=new MatTableDataSource<UserRequest>(response);
+    });
+    
+  }
+  refresh(){
+    this.hrservice.getRequests().then((response:any)=>{
+      console.log(response);
+      this.dataSource=new MatTableDataSource<UserRequest>(response);
+    });
+  }
 
+  // applyFilter(event: Event) {
+  //   const filterValue = (event.target as HTMLInputElement).value;
+  //   this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  //   if (this.dataSource.paginator) {
+  //     this.dataSource.paginator.firstPage();
+  //   }
   // }
-  
+  async action(username:string,status:string){
+    
+    console.log(username+' : '+status);
+    let resp=await this.allocationservice.approveReuest(username,status);
+    if(resp){
+     alert("request approved");
+    this.refresh();
+   }
+  }
+
+
 
 }

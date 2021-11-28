@@ -5,5 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class AllocationService {
 
-  constructor() { }
+  constructor() {
+
+  }
+
+  async approveReuest(username:string,approval:string){
+    // call to get our APIs to approve our allocation and deallocation requests
+    let res;
+    return res;
+  }
 }

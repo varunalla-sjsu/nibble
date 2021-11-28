@@ -1,44 +1,67 @@
 
-<h1>Nibble</h1>
 
-<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
-  <div fxFlex="60">
-      <div class="mat-elevation-z8">
-          <table mat-table [dataSource]="dataSource">
+<mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile>
+        <h1>Nibble</h1>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+            <div fxFlex="60">
+                <h1>Pending resource allocation and deallocation requests</h1>
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource">
+          
+                       
+                        <ng-container matColumnDef="employee">
+                            <th mat-header-cell *matHeaderCellDef> Employee </th>
+                            <td mat-cell *matCellDef="let element"> {{element.employee}} </td>
+                        </ng-container>
+          
+                       
+                        <ng-container matColumnDef="raisedby">
+                            <th mat-header-cell *matHeaderCellDef> Raised By </th>
+                            <td mat-cell *matCellDef="let element"> {{element.raisedby}} </td>
+                        </ng-container>
+          
+                        
+                        <ng-container matColumnDef="type">
+                            <th mat-header-cell *matHeaderCellDef> Type </th>
+                            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                        </ng-container>
+          
+                      
+                        <ng-container matColumnDef="departmentid">
+                            <th mat-header-cell *matHeaderCellDef> Department </th>
+                            <td mat-cell *matCellDef="let element"> {{element.departmentid}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef> Action</th>
+                            <td mat-cell *matCellDef="let element">
+    
+                                <mat-icon (click)="action(element.username,'approve')">verified_user</mat-icon>
+                                <mat-icon (click)="action(element.username,'reject')">clear</mat-icon>
+                            </td>
+                        </ng-container>
+          
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+          
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+                    <button mat-mini-fab color="primary" aria-label="refresh">
+                        <mat-icon (click)="refresh()">refresh</mat-icon>
+                      </button>
+                </div>
+          
+            </div>
+            <!-- <div fxFlex="40">
+                <app-widget-pie [data]="pieChart"></app-widget-pie>
+            </div> -->
+          </div>
 
-              <!-- Position Column -->
-              <ng-container matColumnDef="position">
-                  <th mat-header-cell *matHeaderCellDef> No. </th>
-                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-              </ng-container>
+    </mat-grid-tile>
 
-              <!-- Name Column -->
-              <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef> Name </th>
-                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-              </ng-container>
-
-              <!-- Weight Column -->
-              <ng-container matColumnDef="weight">
-                  <th mat-header-cell *matHeaderCellDef> Weight </th>
-                  <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-              </ng-container>
-
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="symbol">
-                  <th mat-header-cell *matHeaderCellDef> Symbol </th>
-                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-              </ng-container>
-
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-
-          <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator> -->
-      </div>
-
-  </div>
-  <!-- <div fxFlex="40">
-      <app-widget-pie [data]="pieChart"></app-widget-pie>
-  </div> -->
-</div>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
+  </mat-grid-list>
+  
