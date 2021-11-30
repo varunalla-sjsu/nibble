@@ -14,9 +14,12 @@ app.use(auth.middlware);
  * cors 
  * body parsing configuration 
  * */
+ app.use(express.static('public'));
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
+
 /**
  * Controller injection
  *  */ 
