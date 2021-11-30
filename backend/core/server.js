@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const cors=require('cors');
 const auth=require('./auth/authMiddleware');
-const controllers=require('./controllers/index');
+const apiControllers=require('./controllers/index');
 /**
  * Authentication Middleware
  */
@@ -20,7 +20,7 @@ app.use(express.urlencoded());
 /**
  * Controller injection
  *  */ 
-app.use('/',controllers);
+app.use('/api',apiControllers);
 var server = app.listen(process.env.SERVER_PORT,function(){
     var port = server.address().port
     console.log("app is listening at %s",port)

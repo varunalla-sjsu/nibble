@@ -1,0 +1,1 @@
+module.exports.genderEnum=require('./genderEnum');
