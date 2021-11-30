@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     let tokens = await this.client.getRequestToken("http://localhost:3000/twitter/auth")
         .then(res => {
             console.log(res);
-            res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + res.oauth_token).then(res => {
+            res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + res.oauth_token);/*.then(res => {
                 this.client.getAccessToken({
                     oauth_verifier: "",
                     oauth_token: ""
@@ -38,7 +38,9 @@ router.get('/', async (req, res) => {
         .catch(console.error);
 
     console.log(tokens);
-
+    */}).catch(err=>{
+        res.status(503).send({"message":"could not process request"});
+    });
 
 });
 
