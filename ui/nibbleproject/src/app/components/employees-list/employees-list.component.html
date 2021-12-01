@@ -1,38 +1,45 @@
-<div class="mat-elevation-z8">
-    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
-    <table mat-table [dataSource]="dataSource">
-      <!-- Position Column -->
-      <ng-container matColumnDef="empno">
-        <th mat-header-cell *matHeaderCellDef> Employee No</th>
-        <td mat-cell *matCellDef="let element"> {{element.emp_no}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="firstname">
-        <th mat-header-cell *matHeaderCellDef> First Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="lastname">
-        <th mat-header-cell *matHeaderCellDef> Last Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
-      </ng-container>
-    
-      <ng-container matColumnDef="birthdate">
-        <th mat-header-cell *matHeaderCellDef> Email </th>
-        <td mat-cell *matCellDef="let element"> {{element.birth_date}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="hiredate">
-        <th mat-header-cell *matHeaderCellDef> Reg Date </th>
-        <td mat-cell *matCellDef="let element"> {{element.hire_date}} </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
-    <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="pageSize"
-      [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
-    </mat-paginator>
-  
-  </div>
+<div class="content">
+    <div fxLayout="row wrap">
+        <div fxFlex="80%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="stretch">
+            <div fxLayout="column">
+                <div class="mat-elevation-z8">
+                    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+                    <table mat-table [dataSource]="dataSource">
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="empno">
+                            <th mat-header-cell *matHeaderCellDef> Employee No</th>
+                            <td mat-cell *matCellDef="let element"> {{element.emp_no}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="firstname">
+                            <th mat-header-cell *matHeaderCellDef> First Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="lastname">
+                            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="birthdate">
+                            <th mat-header-cell *matHeaderCellDef> Birth Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element.birth_date}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="hiredate">
+                            <th mat-header-cell *matHeaderCellDef>Hire Date</th>
+                            <td mat-cell *matCellDef="let element"> {{element.hire_date}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
+                    </mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
