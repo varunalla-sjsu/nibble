@@ -1,3 +1,4 @@
+import { MatPaginator } from '@angular/material/paginator';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -47,7 +48,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ShareIconsModule, 
     MDBBootstrapModule
   ],
-  providers: [],
+  providers: [MatPaginator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
