@@ -26,6 +26,9 @@ app.use(express.urlencoded());
  * Controller injection
  *  */ 
 app.use('/api',apiControllers);
+app.get('*', function(req, res){
+  res.sendFile("index.html", {root: "public"});
+});
 var server = app.listen(process.env.SERVER_PORT,function(){
     var port = server.address().port
     console.log("app is listening at %s",port)
