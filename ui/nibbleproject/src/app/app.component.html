@@ -1,12 +1,13 @@
 <div class="dcontainer" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary">
-    <button mat-icon-button class="icon"  [ngClass]="mobileQuery.matches ? 'menuicon' : 'menuicon-disabled'" aria-label="Nibble project toolbar icon" (click)="snav.toggle()">
-      <mat-icon >menu</mat-icon>
+    <button mat-icon-button class="icon" [ngClass]="mobileQuery.matches ? 'menuicon' : 'menuicon-disabled'"
+      aria-label="Nibble project toolbar icon" (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
     </button>
     <h1 class="app-name">Team Nibble </h1>
-    <div  [ngClass]="mobileQuery.matches ? 'menuicon-disabled' : 'menuicon'">
+    <div [ngClass]="mobileQuery.matches ? 'menuicon-disabled' : 'menuicon'">
 
-      <button mat-button  routerLink="/employees" >Employees</button>
+      <button mat-button routerLink="/employees">Employees</button>
       <button mat-button routerLink="/app-hrdashboard">HR Operations</button>
       <button mat-button routerLink="/departments">Departments</button>
       <button mat-button>My Team</button>
@@ -14,6 +15,15 @@
       <button mat-button routerLink="/hike">Hike View</button>
     </div>
     <span class="spacer"></span>
+    <div class="icon">
+      <div class="item">
+        <ngx-skeleton-loader count="1" appearance="circle" [theme]="{ 
+          'border-radius': '2px',
+          height: '40px',
+          margin:'10px'
+        }" animation="pulse"></ngx-skeleton-loader>
+      </div>
+    </div>
 
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu icon button">
       <mat-icon>more_vert</mat-icon>
@@ -50,4 +60,3 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-

@@ -39,3 +39,6 @@
   .menuicon-disabled{
       display: none;
   }
+  .icon {
+    margin-top: 10px;
+  }

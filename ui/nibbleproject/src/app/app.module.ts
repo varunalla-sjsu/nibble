@@ -20,6 +20,7 @@ import { MaterialModule } from './modules/styling/material/material.module';
 import { EmployeesHikeComponent } from './components/employees-hike/employees-hike.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 // mport { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
@@ -54,6 +55,7 @@ import { DepartmentsListComponent } from './components/departments-list/departme
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    NgxSkeletonLoaderModule,
     NgbModule,
     ShareIconsModule, 
     MDBBootstrapModule
