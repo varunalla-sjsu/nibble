@@ -27,7 +27,7 @@ export class DepartmentsListComponent implements OnInit {
 
 
   ngAfterViewInit() {
-    //this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
@@ -41,9 +41,8 @@ export class DepartmentsListComponent implements OnInit {
       console.log(result);
       this.dataSource.data = result.rows;
 
-  //    this.paginator.length= result.count;
       this.totalRows=result.count;
-        this.paginator.pageIndex = this.currentPage;
+      this.paginator.pageIndex = this.currentPage;
       
       this.isLoading = false;
     },

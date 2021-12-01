@@ -2,6 +2,17 @@
     <div fxLayout="row wrap">
         <div fxFlex="80%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="stretch">
             <div fxLayout="column">
+                <mat-expansion-panel hideToggle class="heading">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Employees
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        Employees of the Organisation
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p> Employees of the Organisation</p>
+                  </mat-expansion-panel>
                 <div class="mat-elevation-z8">
                     <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
                     <table mat-table [dataSource]="dataSource">
