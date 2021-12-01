@@ -45,9 +45,9 @@
                     </table>
           
                     <mat-paginator [pageSizeOptions]="[5,10, 20,100]"></mat-paginator>
-                    <button mat-mini-fab color="primary" aria-label="refresh">
+                    <!-- <button mat-mini-fab color="primary" aria-label="refresh">
                         <mat-icon (click)="refresh()">refresh</mat-icon>
-                      </button>
+                      </button> -->
                 </div>
           
             </div>
@@ -66,6 +66,7 @@
 
 
         <div >
+            <h1>Current allocation status across departments</h1>
         <mat-list role="list" >
            
         <mat-list-item class="mat-elevation-z8" *ngFor="let department of departments">
