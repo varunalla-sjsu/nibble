@@ -23,8 +23,7 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 // mport { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
-
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MDBBootstrapModule } from 'angular-bootstrap-md'; 
 import { EmployeesComponent } from './components/employees/employees.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
@@ -51,6 +50,7 @@ import { DepartmentsListComponent } from './components/departments-list/departme
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
