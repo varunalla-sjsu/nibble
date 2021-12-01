@@ -11,5 +11,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  AfterViewInit(){
+    console.log('view loaded')
+  }
 
 }
