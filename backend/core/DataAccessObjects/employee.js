@@ -11,6 +11,9 @@ class employee{
     getEmployeesWithCriterion(query,skip,limit){
         return this.employees.findAll({where:query,offset:skip,limit:limit});
     }
-
+    getEmployeesAndCount(skip,limit){
+        console.log(this.db);
+        return this.employees.findAndCountAll({offset:skip,limit:limit});
+    }
 }
 module.exports=employee;

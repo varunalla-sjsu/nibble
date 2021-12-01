@@ -6,7 +6,7 @@
     <h1 class="app-name">Team Nibble </h1>
     <div  [ngClass]="mobileQuery.matches ? 'menuicon-disabled' : 'menuicon'">
 
-      <button mat-button>Employees</button>
+      <button mat-button  routerLink="/employees" >Employees</button>
       <button mat-button routerLink="/app-hrdashboard">hrdashboard</button>
       <button mat-button>Departments</button>
       <button mat-button>My Team</button>

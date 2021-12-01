@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
 import { MyteamComponent } from './components/myteam/myteam.component';
@@ -22,7 +23,9 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 // mport { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
-import { MDBBootstrapModule } from 'angular-bootstrap-md'; 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { EmployeesComponent } from './components/employees/employees.component';
+import { EmployeesListComponent } from './components/employees-list/employees-list.component'; 
 
 @NgModule({
   declarations: [
@@ -37,12 +40,15 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     EmployeedashboardComponent,
     HrdashboardComponent,
     ManagerdashboardComponent,
-    EmployeesHikeComponent
+    EmployeesHikeComponent,
+    EmployeesComponent,
+    EmployeesListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
     NgbModule,
     ShareIconsModule, 
