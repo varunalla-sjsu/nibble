@@ -31,6 +31,7 @@
     "jw-angular-social-buttons": "^1.0.0",
     "ngx-echarts": "^8.0.0",
     "ngx-sharebuttons": "^9.0.0",
+    "ngx-skeleton-loader": "^4.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -7,8 +7,8 @@ router.get('/',async (req,res)=>{
     let skip=parseInt(req.query.skip) || 0;
     let limit=parseInt(req.query.limit) || 20;
     try{
-        let departments=await departmentDataAccess.getDepartments(skip,limit);
-        return res.send(departments);
+        let {count, rows:departments}=await departmentDataAccess.getDepartmentsAndCount(skip,limit);
+        return res.send({count:count,rows:departments});
     }
     catch(err){
         console.log(err);

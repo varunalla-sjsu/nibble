@@ -1,0 +1,45 @@
+<div class="content">
+    <div fxLayout="row wrap">
+        <div fxFlex="80%" fxFlex.xs="100%" fxFlex.sm="100%" fxLayoutAlign="stretch">
+            <div fxLayout="column">
+                <mat-expansion-panel hideToggle class="heading">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Departments
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        Departments of the Organisation
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p> Departments of the Organisation</p>
+                  </mat-expansion-panel>
+                <div class="mat-elevation-z8">
+                    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+                    <table mat-table [dataSource]="dataSource">
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="deptno">
+                            <th mat-header-cell *matHeaderCellDef> Department No</th>
+                            <td mat-cell *matCellDef="let element"> {{element.dept_no}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="deptname">
+                            <th mat-header-cell *matHeaderCellDef> Department Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.dept_name}} </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="9999">
+                                No Data Found
+                            </td>
+                          </tr>
+                    </table>
+
+                    <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
+                    </mat-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>

@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
 import { MyteamComponent } from './components/myteam/myteam.component';
@@ -19,10 +20,14 @@ import { MaterialModule } from './modules/styling/material/material.module';
 import { EmployeesHikeComponent } from './components/employees-hike/employees-hike.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 // mport { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
-import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md'; 
+import { EmployeesComponent } from './components/employees/employees.component';
+import { EmployeesListComponent } from './components/employees-list/employees-list.component';
+import { DepartmentsComponent } from './components/departments/departments.component';
+import { DepartmentsListComponent } from './components/departments-list/departments-list.component'; 
 
 @NgModule({
   declarations: [
@@ -37,14 +42,20 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     EmployeedashboardComponent,
     HrdashboardComponent,
     ManagerdashboardComponent,
-    EmployeesHikeComponent
+    EmployeesHikeComponent,
+    EmployeesComponent,
+    EmployeesListComponent,
+    DepartmentsComponent,
+    DepartmentsListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
+    NgxSkeletonLoaderModule,
     NgbModule,
     ShareIconsModule, 
     MDBBootstrapModule

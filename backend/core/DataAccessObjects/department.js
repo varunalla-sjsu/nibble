@@ -11,6 +11,11 @@ class department{
     getDepartmentsWithCriterion(query,skip,limit){
         return this.departments.findAll({where:query,offset:skip,limit:limit});
     }
-
+    getDepartmentsAndCount(skip,limit){
+        console.log(this.db);
+        return this.departments.findAndCountAll({offset:skip,limit:limit,order: [
+            ['dept_no', 'ASC']
+        ]});
+    }
 }
 module.exports=department;
