@@ -25,7 +25,9 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { EmployeesComponent } from './components/employees/employees.component';
-import { EmployeesListComponent } from './components/employees-list/employees-list.component'; 
+import { EmployeesListComponent } from './components/employees-list/employees-list.component';
+import { DepartmentsComponent } from './components/departments/departments.component';
+import { DepartmentsListComponent } from './components/departments-list/departments-list.component'; 
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { EmployeesListComponent } from './components/employees-list/employees-li
     ManagerdashboardComponent,
     EmployeesHikeComponent,
     EmployeesComponent,
-    EmployeesListComponent
+    EmployeesListComponent,
+    DepartmentsComponent,
+    DepartmentsListComponent
   ],
   imports: [
     BrowserModule,
