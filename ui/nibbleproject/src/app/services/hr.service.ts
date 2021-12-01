@@ -8,7 +8,7 @@ export class HrService {
   constructor() { }
 
 
-  async getRequests(){
+  async getRequests(params: string){
     // call to get our APIs to get our allocation and deallocation requests
     let res = [
       { employee: "chris", raisedby: 'John', type:"allocation", departmentid: 'IT' },
@@ -18,8 +18,8 @@ export class HrService {
       { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' },
       { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' },
       { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' }
-    ];
-    return res;
+    ]
+      return res;
   }
 
   async getDepartmentsInfo(){
