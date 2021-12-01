@@ -114,11 +114,11 @@ export class HrdashboardComponent implements OnInit {
       debugger;
       this.loading = false;
       this.users = response;
-      this.users.length = response.total;
+      this.users.length = response.length;
 
       this.dataSource = new MatTableDataSource<any>(this.users);
       this.dataSource.paginator = this.paginator;
-
+      debugger;
     })
   }
 
@@ -126,7 +126,7 @@ export class HrdashboardComponent implements OnInit {
     let params = new HttpParams();
     params = params.set('offset', offset);
     params = params.set('limit', limit);
-
+    debugger;
     await this.hrservice.getRequests(params.toString())
     .then((response: any) =>{
 

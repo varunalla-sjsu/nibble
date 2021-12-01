@@ -15,6 +15,8 @@ export class HrService {
       { employee: "Josh", raisedby: 'Casey', type:"deallocation", departmentid: 'IT' },
       { employee: "Cody", raisedby: 'John', type:"allocation", departmentid: 'Consulting' },
       { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' },
+      { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' },
+      { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' },
       { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' }
     ]
       return res;
