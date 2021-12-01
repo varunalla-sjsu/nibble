@@ -1,3 +1,4 @@
+import { MatPaginator } from '@angular/material/paginator';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -15,6 +16,14 @@ import { EmployeedashboardComponent } from './components/employeedashboard/emplo
 import { HrdashboardComponent } from './components/hrdashboard/hrdashboard.component';
 import { ManagerdashboardComponent } from './components/managerdashboard/managerdashboard.component';
 import { MaterialModule } from './modules/styling/material/material.module';
+import { EmployeesHikeComponent } from './components/employees-hike/employees-hike.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+// mport { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,15 +36,19 @@ import { MaterialModule } from './modules/styling/material/material.module';
     PermissionsComponent,
     EmployeedashboardComponent,
     HrdashboardComponent,
-    ManagerdashboardComponent
+    ManagerdashboardComponent,
+    EmployeesHikeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    NgbModule,
+    ShareIconsModule, 
+    MDBBootstrapModule
   ],
-  providers: [],
+  providers: [MatPaginator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
