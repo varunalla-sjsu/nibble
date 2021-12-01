@@ -17,6 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const materialModules=[
   MatIconModule,
@@ -34,7 +35,8 @@ const materialModules=[
   MatInputModule,
   MatFormFieldModule,
   MatSnackBarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatGridListModule
 ]
 
 @NgModule({
