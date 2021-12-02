@@ -17,6 +17,9 @@ const definitions = require('./definitions');
 const models = {};
 for(const name in definitions) {
      models[name] = connection.define(definitions[name].tablename, definitions[name].schema,definitions[name].config);
+     if(definitions[name].hasOwnProperty('isSync')){
+       models[name].sync({force:true});
+     }
      console.log(name);
 }
 
