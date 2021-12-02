@@ -28,6 +28,7 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "angular-bootstrap-md": "^12.1.0",
     "bootstrap": "^5.1.3",
+    "echarts": "^5.2.2",
     "jw-angular-social-buttons": "^1.0.0",
     "ngx-echarts": "^8.0.0",
     "ngx-sharebuttons": "^9.0.0",

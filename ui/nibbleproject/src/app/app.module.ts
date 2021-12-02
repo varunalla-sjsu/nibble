@@ -19,6 +19,7 @@ import { ManagerdashboardComponent } from './components/managerdashboard/manager
 import { MaterialModule } from './modules/styling/material/material.module';
 import { EmployeesHikeComponent } from './components/employees-hike/employees-hike.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxEchartsModule } from 'ngx-echarts';
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 // mport { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
@@ -27,7 +28,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
-import { DepartmentsListComponent } from './components/departments-list/departments-list.component'; 
+import { DepartmentsListComponent } from './components/departments-list/departments-list.component';
+import { HrHomedashboardComponent } from './components/hr-homedashboard/hr-homedashboard.component'; 
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { DepartmentsListComponent } from './components/departments-list/departme
     EmployeesComponent,
     EmployeesListComponent,
     DepartmentsComponent,
-    DepartmentsListComponent
+    DepartmentsListComponent,
+    HrHomedashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,10 @@ import { DepartmentsListComponent } from './components/departments-list/departme
     NgxSkeletonLoaderModule,
     NgbModule,
     ShareIconsModule, 
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'), 
+    })
   ],
   providers: [MatPaginator],
   bootstrap: [AppComponent]

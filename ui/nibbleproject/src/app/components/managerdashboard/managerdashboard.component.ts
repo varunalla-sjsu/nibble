@@ -10,6 +10,7 @@ export class ManagerdashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+   
   }
 
 }
