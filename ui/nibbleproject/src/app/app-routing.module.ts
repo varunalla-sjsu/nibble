@@ -6,6 +6,7 @@ import { HrdashboardComponent } from './components/hrdashboard/hrdashboard.compo
 import { EmployeesComponent } from './components/employees/employees.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { AuthorizationGuard } from './guards/authorization.guard';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,6 +33,9 @@ const routes: Routes = [
     data: {
       expectedRole: ['admin']
     }
+  },
+  {
+    path: 'profile', component: ProfileComponent
   }
 ];
 
