@@ -6,6 +6,7 @@ class ratings{
     
     getEmployeesWithUnderManager(query,skip,limit){
         return this.ratings.findAll({where:query,offset:skip,limit:limit});
+        
     }
     getEmployeesAndCount(skip,limit){
         console.log(this.ratings);

@@ -4,11 +4,17 @@ const departmentDataAccess=new (require('./../DataAccessObjects/department'))(db
 router.get('/',async (req,res)=>{
     //skip
     //limit
+    // console.log("hello world!!");
+    console.log(req.query);
     let skip=parseInt(req.query.skip) || 0;
     let limit=parseInt(req.query.limit) || 20;
+    
     try{
-        let {count, rows:departments}=await departmentDataAccess.getDepartmentsAndCount(skip,limit);
-        return res.send({count:count,rows:departments});
+       
+            let {count, rows:departments}=await departmentDataAccess.getDepartmentsAndCount(skip,limit);
+            return res.send({count:count,rows:departments});
+        
+       
     }
     catch(err){
         console.log(err);

@@ -5,10 +5,15 @@ const employeeRouter=require('./employeeController');
 const departmentRouter=require('./departmentController');
 const twitterHelperRouter = require('./twitterhelperController');  // added by aakanksha: For calling twiiter api's
 const ratingRouter = require('./ratingsControllers'); // added by aakanksha : for getting rating records from table
+const titleRouter = require('./titleControllers'); // added by aakanksha : for getting title of the employee 
+const departEmpRouter = require('./departEmpController');
+
 router.use('/home',homeRouter);
 router.use('/user',usersRouter);
 router.use('/employee',employeeRouter);
 router.use('/department',departmentRouter);
 router.use('/twitter', twitterHelperRouter);
 router.use('/ratings', ratingRouter);
+router.use('/title', titleRouter);
+router.use('/departemp',departEmpRouter);
 module.exports=router;
