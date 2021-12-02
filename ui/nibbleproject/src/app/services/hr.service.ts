@@ -8,18 +8,17 @@ export class HrService {
 
   constructor(private http: HttpClient) { }
 
-  
-
-  async getRequests(params: string){
+   getRequests(skip:number,limit:number){
     // call to get our APIs to get our allocation and deallocation requests
 
     console.log("inside getRequests");
-    this.http.get('http://localhost:3000/api/requests?skip=0&limit=5', {}).subscribe(function (res : any) {
-      console.log("back to frontend service" + res);
-      return res;
+   return this.http.get('http://localhost:3000/api/requests?skip='+skip+'&limit='+limit) ;
+      // console.log(res);
+      // console.log("back to frontend service" + res[0]);
+      // return res;
 
-    });
-   
+    // });
+ 
   }
 
   async getDepartmentsInfo(){

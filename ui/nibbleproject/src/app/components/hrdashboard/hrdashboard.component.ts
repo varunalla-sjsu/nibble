@@ -11,21 +11,20 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { HrService } from 'src/app/services/hr.service';
 import { AllocationService } from 'src/app/services/allocation.service';
+import { User } from 'src/app/models/user';
 
 
-export interface UserRequest {
-  employee: string;
-  raisedBy: string;
-  type: string;
-  requestid:string;
-  departmentid:string;
+interface UserRequest {
+  emp_no: number;
+  req_madeby: string;
+  req_type: string;
+  req_id:number;
+  req_dept:string;
+  req_job_title:string;
+  req_date:Date;
+  is_done:Boolean
 
 }
-
-const ELEMENT_DATA: UserRequest[] = [
-];
-
-
 
 @Component({
   selector: 'app-hrdashboard',
@@ -33,22 +32,68 @@ const ELEMENT_DATA: UserRequest[] = [
   styleUrls: ['./hrdashboard.component.css']
 })
 export class HrdashboardComponent implements OnInit {
-  users!: any[];
-  loading: boolean = true;
-  dataSource = new MatTableDataSource<any>();
-  departments : any;
+
+   ELEMENT_DATA: UserRequest[] = [];
+   isLoading = false;
+   totalRows = 0;
+   pageSize = 5;
+   currentPage = 0;
+   pageSizeOptions: number[] = [5,10, 25, 100];
+
+   displayedColumns: string[] = ['emp_no', 'req_madeby', 'req_type', 'req_dept','action'];
+   dataSource: MatTableDataSource<UserRequest> = new MatTableDataSource();
+   @ViewChild(MatPaginator)
+   paginator!: MatPaginator;
+
+   constructor(private hrservice:HrService , private allocationservice:AllocationService , private http: HttpClient) {
+
+    // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+   }
+
+   ngAfterViewInit() {
+    //this.dataSource.paginator = this.paginator;
+  }
+  async ngOnInit() {
+    // this.dataSource.paginator = this.paginator;
+    // debugger;
+    this.loadData();
+
+    // this.departments = await this.hrservice.getDepartmentsInfo();
+  }
+
+  loadData() {
+    this.isLoading = true;
+    this.hrservice.getRequests(this.currentPage * this.pageSize, this.pageSize).subscribe((result: any) => {
+      console.log(result);
+      this.dataSource.data = result.rows;
+
+  //    this.paginator.length= result.count;
+      this.totalRows=result.count;
+        this.paginator.pageIndex = this.currentPage;
+      
+      this.isLoading = false;
+    },
+      err => {
+        console.log('Error Fetching Data');
+        this.isLoading = false;
+      });
+  }
+
+  pageChanged(event: PageEvent) {
+    console.log({ event });
+    this.pageSize = event.pageSize;
+    this.currentPage = event.pageIndex;
+    this.loadData();
+  }
   
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  // @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   // constructor(private http: HttpClient) {
 
   // }
 
-  constructor(private hrservice:HrService , private allocationservice:AllocationService , private http: HttpClient) {
-
-    // this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-   }
-  displayedColumns: string[] = ['employee', 'raisedby', 'type', 'departmentid','action'];
+  
+  
   // dataSource : MatTableDataSource<UserRequest>;
 
   
@@ -58,13 +103,7 @@ export class HrdashboardComponent implements OnInit {
   // displayedColumns: string[] = ['name','action'];
   // dataSource: any;
   
-  async ngOnInit() {
-    // this.dataSource.paginator = this.paginator;
-    // debugger;
-    this.getData('0', '5');
-
-    this.departments = await this.hrservice.getDepartmentsInfo();
-  }
+  
   // ngAfterViewInit() {
   //   this.dataSource.paginator = this.paginator;
   //   this.dataSource.sort = this.sort;
@@ -105,58 +144,61 @@ export class HrdashboardComponent implements OnInit {
 
   // }
 
-  async getData(offset : string, limit : string){
-    let params = new HttpParams();
-    params = params.set('skip', offset);
-    params = params.set('limit', limit);
+  // async getData(offset : string, limit : string){
+  //   let params = new HttpParams();
+  //   params = params.set('skip', offset);
+  //   params = params.set('limit', limit);
 
-   await this.hrservice.getRequests(params.toString())
-    .then((response: any) =>{
-      // debugger;
-      this.loading = false;
-      this.users = response;
-      this.users.length = response.length;
+  //  await this.hrservice.getRequests(params.toString())
+  //   .then((response: any) =>{
+  //     // debugger;
+  //     this.loading = false;
+  //     this.users = response;
+  //     console.log("inside ts file getData");
+      
+  //     this.users.length = response.length;
+  //     // console.log(this.users.length);
+  //     // debugger;
+  //     this.dataSource = new MatTableDataSource<any>(this.users);
+  //     this.dataSource.paginator = this.paginator;
+  //     // debugger;
+  //   })
+  // }
 
-      this.dataSource = new MatTableDataSource<any>(this.users);
-      this.dataSource.paginator = this.paginator;
-      // debugger;
-    })
-  }
+  // async getNextData(currentSize:any, offset:any, limit:any){
+  //   let params = new HttpParams();
+  //   params = params.set('skip', offset);
+  //   params = params.set('limit', limit);
+  //   // debugger;
+  //   await this.hrservice.getRequests(params.toString())
+  //   .then((response: any) =>{
 
-  async getNextData(currentSize:any, offset:any, limit:any){
-    let params = new HttpParams();
-    params = params.set('skip', offset);
-    params = params.set('limit', limit);
-    // debugger;
-    await this.hrservice.getRequests(params.toString())
-    .then((response: any) =>{
+  //     this.loading = false;
 
-      this.loading = false;
+  //     this.users.length = currentSize;
+  //     this.users.push(...response.users);
 
-      this.users.length = currentSize;
-      this.users.push(...response.users);
+  //     this.users.length = response.total;
 
-      this.users.length = response.total;
+  //     this.dataSource = new MatTableDataSource<any>(this.users);
+  //     this.dataSource._updateChangeSubscription();
 
-      this.dataSource = new MatTableDataSource<any>(this.users);
-      this.dataSource._updateChangeSubscription();
-
-      this.dataSource.paginator = this.paginator;
+  //     this.dataSource.paginator = this.paginator;
   
-    })
-  } 
+  //   })
+  // } 
 
-  pageChanged(event:any){
-    this.loading = true;
+  // pageChanged(event:any){
+  //   this.loading = true;
 
-    let pageIndex = event.pageIndex;
-    let pageSize = event.pageSize;
+  //   let pageIndex = event.pageIndex;
+  //   let pageSize = event.pageSize;
 
-    let previousIndex = event.previousPageIndex;
+  //   let previousIndex = event.previousPageIndex;
 
-    let previousSize = pageSize * pageIndex;
+  //   let previousSize = pageSize * pageIndex;
 
-    this.getNextData(previousSize, (pageIndex).toString(), pageSize.toString());
-  }
+  //   this.getNextData(previousSize, (pageIndex).toString(), pageSize.toString());
+  // }
 }
 

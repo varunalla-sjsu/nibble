@@ -6,30 +6,31 @@
             <div fxFlex="80">
                 <h1>Pending resource allocation and deallocation requests</h1>
                 <div class="mat-elevation-z8">
+                    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
                     <table mat-table [dataSource]="dataSource">
           
                        
-                        <ng-container matColumnDef="employee">
+                        <ng-container matColumnDef="emp_no">
                             <th mat-header-cell *matHeaderCellDef> Employee </th>
-                            <td mat-cell *matCellDef="let element"> {{element.employee}} </td>
+                            <td mat-cell *matCellDef="let element"> {{element.emp_no}} </td>
                         </ng-container>
           
                        
-                        <ng-container matColumnDef="raisedby">
+                        <ng-container matColumnDef="req_madeby">
                             <th mat-header-cell *matHeaderCellDef> Raised By </th>
-                            <td mat-cell *matCellDef="let element"> {{element.raisedby}} </td>
+                            <td mat-cell *matCellDef="let element"> {{element.req_madeby}} </td>
                         </ng-container>
           
                         
-                        <ng-container matColumnDef="type">
+                        <ng-container matColumnDef="req_type">
                             <th mat-header-cell *matHeaderCellDef> Type </th>
-                            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                            <td mat-cell *matCellDef="let element"> {{element.req_type}} </td>
                         </ng-container>
           
                       
-                        <ng-container matColumnDef="departmentid">
+                        <ng-container matColumnDef="req_dept">
                             <th mat-header-cell *matHeaderCellDef> Department </th>
-                            <td mat-cell *matCellDef="let element"> {{element.departmentid}} </td>
+                            <td mat-cell *matCellDef="let element"> {{element.req_dept}} </td>
                         </ng-container>
                         <ng-container matColumnDef="action">
                             <th mat-header-cell *matHeaderCellDef> Action</th>
@@ -44,7 +45,9 @@
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
           
-                    <mat-paginator [pageSizeOptions]="[5,10, 20,100]"></mat-paginator>
+                    <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage" [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page">
+                    </mat-paginator>
                     <!-- <button mat-mini-fab color="primary" aria-label="refresh">
                         <mat-icon (click)="refresh()">refresh</mat-icon>
                       </button> -->
@@ -65,7 +68,7 @@
         </div> -->
 
 
-        <div >
+        <!-- <div >
             <h1>Current allocation status across departments</h1>
         <mat-list role="list" >
            
@@ -75,7 +78,7 @@
            
           </mat-list>
 
-        </div>
+        </div> -->
 
     </mat-grid-tile>
   </mat-grid-list>
