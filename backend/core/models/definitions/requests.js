@@ -17,18 +17,12 @@ module.exports =
     req_dept: {
       type: DataTypes.STRING,
     },
-    req_team: {
-      type: DataTypes.STRING,
-    },
     req_type: {
         type: DataTypes.STRING,
     },
     req_job_title: {
         type: DataTypes.STRING,
       },
-      req_made_to: {
-        type: DataTypes.STRING,
-      },   
     req_date: {
       type: DataTypes.DATEONLY,
     },
