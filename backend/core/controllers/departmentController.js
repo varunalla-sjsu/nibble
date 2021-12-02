@@ -1,7 +1,8 @@
 const db=require('../models/index');
 const router=require('express').Router();
 const departmentDataAccess=new (require('./../DataAccessObjects/department'))(db);
-router.get('/',async (req,res)=>{
+const ensureRole=require('./../auth/authMiddleware').ensureRole;
+router.get('/',ensureRole('admin'),async (req,res)=>{
     //skip
     //limit
     let skip=parseInt(req.query.skip) || 0;
