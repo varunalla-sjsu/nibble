@@ -7,12 +7,12 @@
     <h1 class="app-name">Team Nibble </h1>
     <div [ngClass]="mobileQuery.matches ? 'menuicon-disabled' : 'menuicon'">
       <button mat-button routerLink="/">Home</button>
-      <button mat-button routerLink="/employees">Employees</button>
-      <button mat-button routerLink="/app-hrdashboard">HR Operations</button>
-      <button mat-button routerLink="/departments">Departments</button>
-      <button mat-button>My Team</button>
-      <button mat-button>Resource Allocation</button>
-      <button mat-button routerLink="/hike">Hike View</button>
+      <button mat-button routerLink="/employees" *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">Employees</button>
+      <button mat-button routerLink="/app-hrdashboard" *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">HR Operations</button>
+      <button mat-button routerLink="/departments" *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">Departments</button>
+      <button mat-button *ngIf="this.currentUser && this.checkAccess(['manager'])">My Team</button>
+      <button mat-button *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">Resource Allocation</button>
+      <button mat-button routerLink="/hike" *ngIf="this.currentUser && this.checkAccess(['manager','admin'])">Hike View</button>
     </div>
     <span class="spacer"></span>
     <div [ngClass]="mobileQuery.matches ? 'icon menuicon-disabled' : 'icon menuicon'">
@@ -62,12 +62,12 @@
       </div>
       <mat-nav-list>
         <a mat-list-item routerLink="/">Home</a>
-        <a mat-list-item routerLink="/employees">Employees</a>
-        <a mat-list-item routerLink="/app-hrdashboard">HR Operations</a>
-        <a mat-list-item routerLink="/departments">Departments</a>
-        <a mat-list-item routerLink="/myteam">My Team</a>
-        <a mat-list-item routerLink="/allocation">Resource Allocation</a>
-        <a mat-list-item routerLink="/hike">Hike View</a>
+        <a mat-list-item routerLink="/employees"  *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">Employees</a>
+        <a mat-list-item routerLink="/app-hrdashboard"  *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">HR Operations</a>
+        <a mat-list-item routerLink="/departments"  *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">Departments</a>
+        <a mat-list-item routerLink="/myteam"  *ngIf="this.currentUser && this.checkAccess(['manager'])">My Team</a>
+        <a mat-list-item routerLink="/allocation"  *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">Resource Allocation</a>
+        <a mat-list-item routerLink="/hike"  *ngIf="this.currentUser && this.checkAccess(['manager','admin'])">Hike View</a>
         <a mat-list-item routerLink="/profile">Profile</a>
         <a mat-list-item href="/logout">
          Logout

@@ -29,7 +29,8 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { DepartmentsListComponent } from './components/departments-list/departments-list.component';
-import { HrHomedashboardComponent } from './components/hr-homedashboard/hr-homedashboard.component'; 
+import { HrHomedashboardComponent } from './components/hr-homedashboard/hr-homedashboard.component';
+import { ProfileComponent } from './components/profile/profile.component'; 
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HrHomedashboardComponent } from './components/hr-homedashboard/hr-homed
     EmployeesListComponent,
     DepartmentsComponent,
     DepartmentsListComponent,
-    HrHomedashboardComponent
+    HrHomedashboardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
