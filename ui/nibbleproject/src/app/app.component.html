@@ -6,7 +6,7 @@
     </button>
     <h1 class="app-name">Team Nibble </h1>
     <div [ngClass]="mobileQuery.matches ? 'menuicon-disabled' : 'menuicon'">
-
+      <button mat-button routerLink="/">Home</button>
       <button mat-button routerLink="/employees">Employees</button>
       <button mat-button routerLink="/app-hrdashboard">HR Operations</button>
       <button mat-button routerLink="/departments">Departments</button>
@@ -61,6 +61,7 @@
         </div>
       </div>
       <mat-nav-list>
+        <a mat-list-item routerLink="/">Home</a>
         <a mat-list-item routerLink="/employees">Employees</a>
         <a mat-list-item routerLink="/app-hrdashboard">HR Operations</a>
         <a mat-list-item routerLink="/departments">Departments</a>
