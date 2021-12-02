@@ -9,7 +9,7 @@ module.exports =
       allowNull: false,
       primaryKey: true
     },
-    from_data: {
+    from_date: {
       type: DataTypes.DATEONLY,
       allowNull: false,
       primaryKey: true
