@@ -1,10 +1,13 @@
-
 class request{
     requests;
     constructor(db){
-        this.requests=db.models['requests'];
+        this.requests=db.models['requests'];   
     }
+
+    
     getRequests(skip,limit){
+        console.log(skip);
+        console.log(limit);
         console.log(this.requests);
         return this.requests.findAll({offset:skip,limit:limit});
     }

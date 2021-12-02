@@ -28,7 +28,7 @@ module.exports =
     },
     is_done: {
         type: DataTypes.BOOLEAN,
-        default : false
+        
       }
   },
   config: {

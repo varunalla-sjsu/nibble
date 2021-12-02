@@ -93,7 +93,8 @@ export class HrdashboardComponent implements OnInit {
   async action(username:string,status:string){
     
     console.log(username+' : '+status);
-    let resp=await this.allocationservice.approveReuest(username,status);
+    let resp=await this.allocationservice.approveRequest(username,status);
+    
     if(resp){
      alert("request approved");
     // this.refresh();
@@ -106,7 +107,7 @@ export class HrdashboardComponent implements OnInit {
 
   async getData(offset : string, limit : string){
     let params = new HttpParams();
-    params = params.set('offset', offset);
+    params = params.set('skip', offset);
     params = params.set('limit', limit);
 
    await this.hrservice.getRequests(params.toString())
@@ -124,7 +125,7 @@ export class HrdashboardComponent implements OnInit {
 
   async getNextData(currentSize:any, offset:any, limit:any){
     let params = new HttpParams();
-    params = params.set('offset', offset);
+    params = params.set('skip', offset);
     params = params.set('limit', limit);
     // debugger;
     await this.hrservice.getRequests(params.toString())
