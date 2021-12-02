@@ -25,6 +25,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 // mport { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { MDBBootstrapModule } from 'angular-bootstrap-md'; 
+import { HttpClientModule } from '@angular/common/http';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
@@ -63,12 +64,14 @@ import { ProfileComponent } from './components/profile/profile.component';
     NgxSkeletonLoaderModule,
     NgbModule,
     ShareIconsModule, 
+    MDBBootstrapModule, 
+    HttpClientModule
     MDBBootstrapModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'), 
     })
   ],
-  providers: [MatPaginator],
+  providers: [MatPaginator,HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
