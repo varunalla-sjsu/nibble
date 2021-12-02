@@ -32,7 +32,7 @@ export class AppComponent implements OnDestroy, OnInit {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
   checkAccess(allowed: string[]) {
-    if (this.currentUser) {
+    if (this.currentUser&&this.currentUser?.roles) {
       if (this.checkRole(allowed, this.currentUser.roles))
         return true;
       else
