@@ -23,6 +23,7 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md'; 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,9 +47,10 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MaterialModule,
     NgbModule,
     ShareIconsModule, 
-    MDBBootstrapModule
+    MDBBootstrapModule, 
+    HttpClientModule
   ],
-  providers: [MatPaginator],
+  providers: [MatPaginator,HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
