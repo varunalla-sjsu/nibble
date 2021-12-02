@@ -1,6 +1,6 @@
 const db=require('../models/index');
 const router=require('express').Router();
-const hrDataAccess=new (require('./../DataAccessObjects/request'))(db);
+const hrDataAccess=new (require('../DataAccessObjects/request'))(db);
 router.get('/',async (req,res)=>{
     //skip
     //limit
