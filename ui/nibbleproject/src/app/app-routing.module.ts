@@ -7,6 +7,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { AuthorizationGuard } from './guards/authorization.guard';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CreateDepartmentComponent } from './components/create-department/create-department.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,11 @@ const routes: Routes = [
   },
   {
     path: 'departments', component: DepartmentsComponent, canActivate: [AuthorizationGuard],
+    data: {
+      expectedRole: ['admin']
+    }
+  },{
+    path: 'createdept', component: CreateDepartmentComponent, canActivate: [AuthorizationGuard],
     data: {
       expectedRole: ['admin']
     }

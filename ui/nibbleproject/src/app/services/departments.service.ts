@@ -7,6 +7,14 @@ export class DepartmentsService {
 
   constructor(private http: HttpClient) { }
   fetchDepartments(skip:number,limit:number){
-    return this.http.get('http://localhost:3000/api/department?skip='+skip+'&limit='+limit);
+    return this.http.get('/api/department?skip='+skip+'&limit='+limit);
+  }
+  createDepartments(deptname:string){
+    return this.http.post('/api/department',{
+      dept_name:deptname
+    });
+  }
+  departmentsChart(){
+    return this.http.get('/api/department/distribution');
   }
 }
