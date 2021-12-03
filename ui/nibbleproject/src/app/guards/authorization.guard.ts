@@ -24,7 +24,7 @@ export class AuthorizationGuard implements CanActivate {
     let allowedRoles = route.data.expectedRole as string[];
     let roles: string[] = [];
     if (this.currentUser) {
-      roles = this.currentUser.roles;
+      roles = this.currentUser.roles??[];
     }
     if (this.checkRole(allowedRoles, roles)) {
       console.log('allowed')

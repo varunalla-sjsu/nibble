@@ -10,10 +10,10 @@ export class HikeService {
 
   getTwitterService() {
 var that = this;
-    this.http.get('http://localhost:3000/api/twitter', {}).subscribe(function (res : any) {
+    this.http.get('/api/twitter', {}).subscribe(function (res : any) {
       console.log("back to frontend service" + res);
       window.location.href = res.message;
-      that.http.get('http://localhost:3000/api/twitter/5', {}).subscribe(function (res : any) {
+      that.http.get('/api/twitter/5', {}).subscribe(function (res : any) {
         console.log("back to frontend service" + res);
         window.location.href = res.message;
          
