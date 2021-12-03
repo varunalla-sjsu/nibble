@@ -1,2 +1,37 @@
+  
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
 
-<p>Total Employees in the department</p>
+<div class="w3-container">
+
+<h2>Manager Portal</h2>
+<form ng-hide="hideform">
+  <h3 ng-hide="edit">Make a request for allocation/deallocation</h3><br>
+    <label>Request Id:</label>
+    <input class="w3-input w3-border" type="text" ng-model="fName" ng-disabled="!edit">
+  <br>
+    <label>Manager Id:</label>
+    <input class="w3-input w3-border" type="text" ng-model="lName" ng-disabled="!edit">
+  <br>
+    <label>Requested Department:</label>
+    <input class="w3-input w3-border" type="password" ng-model="passw1" >
+  <br>
+    <label>Type of Request:</label>
+    <input class="w3-input w3-border" type="password" ng-model="passw2">
+  <br>
+  <label>Required Role:</label>
+    <input class="w3-input w3-border" type="password" ng-model="passw2">
+  <br>
+  <label>Requested Employee Id:</label>
+    <input class="w3-input w3-border" type="password" ng-model="passw2">
+  <br>
+  <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete">&#10004; Request</button>
+</form>
+
+</div>
+
+</body>
+</html>
