@@ -64,6 +64,8 @@ export class HrdashboardComponent implements OnInit {
   loadData() {
     this.isLoading = true;
     this.hrservice.getRequests(this.currentPage * this.pageSize, this.pageSize).subscribe((result: any) => {
+      console.log("PRINTING IN TS FILEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+      
       console.log(result);
       this.dataSource.data = result.rows;
 
@@ -135,7 +137,7 @@ export class HrdashboardComponent implements OnInit {
     let resp=await this.allocationservice.approveRequest(req_id,status);
     
     if(resp){
-     alert("request approved");
+     alert("Please Reload");
     // this.refresh();
    }
   }
