@@ -1,6 +1,8 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { HikeService } from 'src/app/services/hike.service';
+
 export interface EmployeeRating {
   name: string;
   position: number;
@@ -41,32 +43,27 @@ const legend: any[] = [
   templateUrl: './employees-hike.component.html',
   styleUrls: ['./employees-hike.component.css']
 })
-export class EmployeesHikeComponent  {
+export class EmployeesHikeComponent {
   displayedColumns: string[] = ['position', 'name', 'prevrating', 'currrating', 'hike'];
   FooterdisplayedColumns: string[] = ['position', 'hike'];
   LegendColumns: string[] = ['rating', 'description'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   legendData = new MatTableDataSource(legend);
   toggle = false;
-constructor(private paginator : MatPaginator)
-{
-  // this.dataSource.paginator = this.paginator;
-}
-  
-@ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
-  this.paginator = mp;
-  this.setDataSourceAttributes();
-}
-setDataSourceAttributes() {
-  this.dataSource.paginator = this.paginator;
-  // this.dataSource.sort = this.sort;
-
-  // if (this.paginator && this.sort) {
-    // this.applyFilter('');
+  constructor(private paginator: MatPaginator, private hike: HikeService) {
+    // this.dataSource.paginator = this.paginator;
   }
 
- 
-  
+  @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
+    this.paginator = mp;
+    this.setDataSourceAttributes();
+  }
+  setDataSourceAttributes() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -76,6 +73,11 @@ setDataSourceAttributes() {
     element.hike = hike;
     console.log("Reached hike endpoint");
     debugger;
+  }
+
+  postAtTwitter()
+  {
+     this.hike.getTwitterService();
   }
 
 }

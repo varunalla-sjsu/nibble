@@ -63,12 +63,13 @@ import { ProfileComponent } from './components/profile/profile.component';
     NgxSkeletonLoaderModule,
     NgbModule,
     ShareIconsModule, 
-    MDBBootstrapModule,
+    MDBBootstrapModule, 
+    HttpClientModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts'), 
     })
   ],
-  providers: [MatPaginator],
+  providers: [MatPaginator,HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
