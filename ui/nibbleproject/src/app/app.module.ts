@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
 import { MyteamComponent } from './components/myteam/myteam.component';
@@ -29,8 +30,10 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { DepartmentsListComponent } from './components/departments-list/departments-list.component';
-import { HrHomedashboardComponent } from './components/hr-homedashboard/hr-homedashboard.component'; 
-
+import { HrHomedashboardComponent } from './components/hr-homedashboard/hr-homedashboard.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { CreateDepartmentComponent } from './components/create-department/create-department.component'; 
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,24 +52,26 @@ import { HrHomedashboardComponent } from './components/hr-homedashboard/hr-homed
     EmployeesListComponent,
     DepartmentsComponent,
     DepartmentsListComponent,
-    HrHomedashboardComponent
+    HrHomedashboardComponent,
+    ProfileComponent,
+    CreateDepartmentComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
     NgxSkeletonLoaderModule,
     NgbModule,
     ShareIconsModule, 
-    MDBBootstrapModule,
-    NgxEchartsModule.forRoot({
-      echarts: () => import('echarts'), 
-    })
+    MDBBootstrapModule, 
+    HttpClientModule,
+    ChartsModule
   ],
-  providers: [MatPaginator],
+  providers: [MatPaginator,HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

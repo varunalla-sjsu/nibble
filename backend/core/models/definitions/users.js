@@ -15,7 +15,8 @@ module.exports =
     },
     emp_no:{
         type:DataTypes.INTEGER,
-        allowNull:false
+        allowNull:false,
+        references: { model: 'employees', key: 'emp_no' }
     }
   },
   config: {

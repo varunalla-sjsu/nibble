@@ -13,7 +13,7 @@ export class UserService {
       
   }
   loadUser() {
-    this.httpClient.get('http://localhost:3000/api/user')
+    this.httpClient.get('/api/user')
       .subscribe(
         (data:any) => this.setUser(data),
         err => this.removeUser()

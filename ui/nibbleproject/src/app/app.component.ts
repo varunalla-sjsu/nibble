@@ -22,14 +22,35 @@ export class AppComponent implements OnDestroy, OnInit {
   }
   ngOnInit() {
     this.userService.loadUser();
-    this.userService.currentUser.subscribe((data:User)=>{
-      this.currentUser=data;
-    },(err)=>{
+    this.userService.currentUser.subscribe((data: User) => {
+      this.currentUser = data;
+    }, (err) => {
       console.log('No user details');
     });
   }
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-
+  checkAccess(allowed: string[]) {
+    if (this.currentUser&&this.currentUser?.roles) {
+      if (this.checkRole(allowed, this.currentUser.roles))
+        return true;
+      else
+        return false;
+    }
+    else
+      return false;
+  }
+  checkRole(allowed: string[], current: string[]): boolean {
+    let roles: any = {};
+    for (let i = 0; i < current.length; i++) {
+      roles[current[i]] = true;
+    }
+    for (let i = 0; i < allowed.length; i++) {
+      if (roles[allowed[i]]) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

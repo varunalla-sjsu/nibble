@@ -1,0 +1,33 @@
+<div class="container top">
+    <mat-accordion class="headers-align">
+        <mat-expansion-panel expanded="true" hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h1>Create Department</h1>
+                </mat-panel-title>
+                <mat-panel-description>
+                    provide department name
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="container">
+                <div class="form-container">
+                    <form [formGroup]="createDeptForm" (submit)="submit()">
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label> Department Name </mat-label>
+                            <input matInput formControlName="deptname" required>
+                            <mat-error
+                                *ngIf="createDeptForm.controls.deptname.touched && createDeptForm.controls.deptname.invalid">
+                                <span *ngIf="createDeptForm.controls.deptname.errors?.errors">This field is
+                                    mandatory.</span>
+                            </mat-error>
+                        </mat-form-field>
+
+                    </form>
+                </div>
+            </div>
+            <mat-action-row>
+                <button mat-raised-button color="primary" type="submit" (click)="submit()">Create Department</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

@@ -29,6 +29,10 @@ module.exports =
     req_date: {
       type: DataTypes.DATEONLY,
     },
+    emp_no: {
+      type: DataTypes.INTEGER,
+      allowNull:false
+    },
     is_done: {
         type: DataTypes.BOOLEAN,
         
