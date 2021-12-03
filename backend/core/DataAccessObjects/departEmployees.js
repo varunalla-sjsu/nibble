@@ -11,7 +11,7 @@ class depart_employyes{
     getDepartmentsWithCriterion(query,skip,limit){
         
         console.log(this.depart_emp);
-        return this.depart_emp.findAll({where: query });
+        return this.depart_emp.findAll({where: query,offset:skip,limit:limit });
     }
     getDepartmentsAndCount(skip,limit){
         
