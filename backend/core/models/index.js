@@ -9,7 +9,13 @@ const config ={
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
-    dialect: 'mysql'
+    dialect: 'mysql',
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 3000,
+      idle: 1000
+    }
 }
 const connection = new Sequelize(config);
 
