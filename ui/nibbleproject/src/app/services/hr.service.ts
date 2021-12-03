@@ -5,20 +5,15 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class HrService {
-
+result: any;
   constructor(private http: HttpClient) { }
 
-   getRequests(skip:number,limit:number){
+    getRequests(skip:number,limit:number){
     // call to get our APIs to get our allocation and deallocation requests
-
     console.log("inside getRequests");
-   return this.http.get('http://localhost:3000/api/requests?skip='+skip+'&limit='+limit) ;
-      // console.log(res);
-      // console.log("back to frontend service" + res[0]);
-      // return res;
-
-    // });
- 
+    return this.http.get('http://localhost:3000/api/requests?skip='+skip+'&limit='+limit)
+      // return this.result;
+      
   }
 
   async getDepartmentsInfo(){

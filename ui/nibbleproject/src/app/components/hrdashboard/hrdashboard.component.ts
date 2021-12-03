@@ -129,10 +129,10 @@ export class HrdashboardComponent implements OnInit {
   //     this.dataSource.paginator.firstPage();
   //   }
   // }
-  async action(username:string,status:string){
+  async action(req_id:number,status:string){
     
-    console.log(username+' : '+status);
-    let resp=await this.allocationservice.approveRequest(username,status);
+    console.log(req_id+' : '+status);
+    let resp=await this.allocationservice.approveRequest(req_id,status);
     
     if(resp){
      alert("request approved");
