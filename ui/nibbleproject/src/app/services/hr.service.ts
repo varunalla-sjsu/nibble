@@ -1,25 +1,19 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class HrService {
+result: any;
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-
-  async getRequests(params: string){
+    getRequests(skip:number,limit:number){
     // call to get our APIs to get our allocation and deallocation requests
-    let res = [
-      { employee: "chris", raisedby: 'John', type:"allocation", departmentid: 'IT' },
-      { employee: "Josh", raisedby: 'Casey', type:"deallocation", departmentid: 'IT' },
-      { employee: "Cody", raisedby: 'John', type:"allocation", departmentid: 'Consulting' },
-      { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' },
-      { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' },
-      { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' },
-      { employee: "XqRwT", raisedby: 'TSikR', type:"deallocation", departmentid: 'Research' }
-    ]
-      return res;
+    console.log("inside getRequests");
+    return this.http.get('http://localhost:3000/api/requests?skip='+skip+'&limit='+limit)
+      // return this.result;
+      
   }
 
   async getDepartmentsInfo(){
