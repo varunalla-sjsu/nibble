@@ -10,24 +10,19 @@ AWS.config.update( {
 
 exports.handler = async (event) => {
   
-  // console.log(event);
- 
-//  we will get the managerId and the status of his request in the event object
-// something like { req_id: "50001",  status : 'approved'}
- 
     var con  = await mysql.createConnection({
     host     : process.env.DB_HOST,
     user     : process.env.DB_USER,
     password : process.env.DB_PASS,
     database : process.env.DB_NAME
-    // connectionLimit : 10
+    
   });
   
   await new Promise(resolve => setTimeout(resolve, 1000));
  
  
  
-    // TODO implement
+    
     var res;
     console.log("outside connection");
     await con.connect(async function(err) {
@@ -67,7 +62,7 @@ exports.handler = async (event) => {
               });
           }
           
-        //   response = result;
+        
           res = result;
        
        
