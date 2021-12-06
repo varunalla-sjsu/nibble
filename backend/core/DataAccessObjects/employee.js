@@ -8,8 +8,8 @@ class employee{
         console.log(this.db);
         return this.employees.findAll({offset:skip,limit:limit});
     }
-    getEmployeesWithCriterion(query,skip,limit){
-        return this.employees.findAll({where:query,offset:skip,limit:limit});
+    getEmployeesWithCriterion(query){
+        return this.employees.findAll({where:query});
     }
     getEmployeesAndCount(skip,limit){
         console.log(this.db);

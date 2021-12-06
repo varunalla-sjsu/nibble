@@ -10,6 +10,8 @@ const departEmpRouter = require('./departEmpController');
 
 const ratingRouter = require('./ratingsControllers'); // added by aakanksha : for getting rating records from tabl
 const makeRequestRouter=require('./makeRequestController'); 
+const titleRouter = require('./titleController');
+
 router.use('/home',homeRouter);
 router.use('/user',usersRouter);
 router.use('/employee',employeeRouter);
@@ -20,4 +22,5 @@ router.use('/allocation', allocationRouter);
 router.use('/departemp',departEmpRouter);
 router.use('/ratings', ratingRouter);
 router.use('/request',makeRequestRouter);
+router.use('/title', titleRouter);
 module.exports=router;
