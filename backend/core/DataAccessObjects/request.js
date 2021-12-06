@@ -14,7 +14,7 @@ class request{
     }
 
     getRequestsAndCount(skip,limit){
-        console.log(this.db);
+        // console.log(this.db);
         return this.requests.findAndCountAll({where: {is_done:false},offset:skip,limit:limit});
     }
     getrRequestsWithCriterion(query,skip,limit){
@@ -31,6 +31,13 @@ class request{
        //  console.log("Update Reached, See database details.."+ query.employee_no);
         return this.requests.update({ is_done: true },
         { where: { req_id: reqid } });
+    }
+
+    deleteRequest(reqid)
+    {
+        console.log("inside delete");
+       //  console.log("Update Reached, See database details.."+ query.employee_no);
+        return this.requests.destroy({ where: { req_id: reqid } });
     }
 
 }

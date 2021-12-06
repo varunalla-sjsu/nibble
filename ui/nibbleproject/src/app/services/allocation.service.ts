@@ -19,7 +19,7 @@ export class AllocationService {
     };
     // this.http.post()
   
-    return this.http.post('http://localhost:3000/api/allocation', body , {}).subscribe(function (res: any) {
+    return this.http.post('/api/allocation', body , {}).subscribe(function (res: any) {
       
     }) 
 

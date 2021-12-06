@@ -18,7 +18,7 @@ router.post('/',async (req,res)=>{
         let requestObject =  await requestAccess.getRequest(req_id);
 
         //    console.log("inside allocationController");
-           console.log(requestObject.req_type);
+        //    console.log(requestObject.req_type);
         //    console.log("inside allocationController");
             if(requestObject.req_type == 'Allocation'){
                 console.log("Allocation Request");
@@ -32,7 +32,7 @@ router.post('/',async (req,res)=>{
                 console.log("Deallocation Request");
                 //  change the department of the employee to d010 org pool
                 let requestObject =  await requestAccess.getRequest(req_id);
-
+                console.log(requestObject.emp_no);
                 await deptEmpDataAccess.updateEmpDepartment(requestObject.emp_no,'d010');
 
                 await requestAccess.updateRequestStatus(requestObject.req_id);
@@ -40,9 +40,10 @@ router.post('/',async (req,res)=>{
             }
 
         }else{
+            console.log("Request Rejected and Marked for deletion");
             // if status = 'reject'
             // delete the request from the table and send rejection mail to manager
-            await requestAccess.updateRequestStatus(requestObject.req_id);
+            await requestAccess.deleteRequest(req_id);
         }
         
         

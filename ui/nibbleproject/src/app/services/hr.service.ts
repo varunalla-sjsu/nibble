@@ -11,7 +11,7 @@ result: any;
     getRequests(skip:number,limit:number){
     // call to get our APIs to get our allocation and deallocation requests
     console.log("inside getRequests");
-    return this.http.get('http://localhost:3000/api/requests?skip='+skip+'&limit='+limit)
+    return this.http.get('/api/requests?skip='+skip+'&limit='+limit)
       // return this.result;
       
   }
