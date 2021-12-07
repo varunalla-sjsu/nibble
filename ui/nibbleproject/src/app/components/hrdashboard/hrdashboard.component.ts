@@ -64,7 +64,7 @@ export class HrdashboardComponent implements OnInit {
   loadData() {
     this.isLoading = true;
     this.hrservice.getRequests(this.currentPage * this.pageSize, this.pageSize).subscribe((result: any) => {
-      console.log("PRINTING IN TS FILEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+      // console.log("PRINTING IN TS FILEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
       
       console.log(result);
       this.dataSource.data = result.rows;
