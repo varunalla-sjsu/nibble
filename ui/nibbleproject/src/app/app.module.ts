@@ -1,6 +1,7 @@
 import { MatPaginator } from '@angular/material/paginator';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +35,8 @@ import { HrHomedashboardComponent } from './components/hr-homedashboard/hr-homed
 import { ProfileComponent } from './components/profile/profile.component';
 import { CreateDepartmentComponent } from './components/create-department/create-department.component'; 
 import { ChartsModule } from 'ng2-charts';
+import {MatSelectModule} from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +61,7 @@ import { ChartsModule } from 'ng2-charts';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -69,7 +73,8 @@ import { ChartsModule } from 'ng2-charts';
     ShareIconsModule, 
     MDBBootstrapModule, 
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    MatSelectModule
   ],
   providers: [MatPaginator,HttpClientModule],
   bootstrap: [AppComponent]

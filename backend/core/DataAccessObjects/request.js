@@ -40,5 +40,13 @@ class request{
         return this.requests.destroy({ where: { req_id: reqid } });
     }
 
+    putRequest(reqid,manager_id,req_dept,req_type,req_job_title,emp_no)
+    {   
+
+        console.log("inside putRequest");
+        var created_date=new Date()
+        return this.requests.create({ req_id: reqid, req_madeby: manager_id,req_dept: req_dept,req_type:req_type,req_job_title:req_job_title,req_date:created_date,emp_no:emp_no,is_done:false});
+    }
+
 }
 module.exports=request;

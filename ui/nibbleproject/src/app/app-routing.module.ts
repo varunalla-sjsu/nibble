@@ -8,6 +8,7 @@ import { DepartmentsComponent } from './components/departments/departments.compo
 import { AuthorizationGuard } from './guards/authorization.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CreateDepartmentComponent } from './components/create-department/create-department.component';
+import { ManagerdashboardComponent } from './components/managerdashboard/managerdashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,6 +18,14 @@ const routes: Routes = [
     canActivate: [AuthorizationGuard],
     data: {
       expectedRole: ['hr','admin']
+    }
+  },
+  {
+    path: 'app-managerdashboard',
+    component: ManagerdashboardComponent,
+    canActivate: [AuthorizationGuard],
+    data: {
+      expectedRole: ['manager']
     }
   },
   {

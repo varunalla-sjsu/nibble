@@ -11,6 +11,7 @@
       <button mat-button routerLink="/app-hrdashboard" *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">HR Operations</button>
       <button mat-button routerLink="/departments" *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">Departments</button>
       <button mat-button *ngIf="this.currentUser && this.checkAccess(['manager'])">My Team</button>
+      <button mat-button routerLink="/app-managerdashboard" *ngIf="this.currentUser && this.checkAccess(['manager'])">Request Resource</button>
       <button mat-button *ngIf="this.currentUser && this.checkAccess(['hr','admin'])">Resource Allocation</button>
       <button mat-button routerLink="/hike" *ngIf="this.currentUser && this.checkAccess(['manager','admin'])">Hike View</button>
     </div>

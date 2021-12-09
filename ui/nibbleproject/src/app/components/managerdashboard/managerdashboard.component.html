@@ -1,37 +1,64 @@
-  
-<!DOCTYPE html>
-<html>
-<link rel="stylesheet" href="/w3css/4/w3.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<body>
-
-<div class="w3-container">
-
-<h2>Manager Portal</h2>
-<form ng-hide="hideform">
-  <h3 ng-hide="edit">Make a request for allocation/deallocation</h3><br>
-    <label>Request Id:</label>
-    <input class="w3-input w3-border" type="text" ng-model="fName" ng-disabled="!edit">
-  <br>
-    <label>Manager Id:</label>
-    <input class="w3-input w3-border" type="text" ng-model="lName" ng-disabled="!edit">
-  <br>
-    <label>Requested Department:</label>
-    <input class="w3-input w3-border" type="password" ng-model="passw1" >
-  <br>
-    <label>Type of Request:</label>
-    <input class="w3-input w3-border" type="password" ng-model="passw2">
-  <br>
-  <label>Required Role:</label>
-    <input class="w3-input w3-border" type="password" ng-model="passw2">
-  <br>
-  <label>Requested Employee Id:</label>
-    <input class="w3-input w3-border" type="password" ng-model="passw2">
-  <br>
-  <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete">&#10004; Request</button>
-</form>
-
+<body ng-app="myModule">       
+  <div ng-controller="myCtrl"> 
+    <form>
+<mat-form-field appearance="fill">
+  <mat-label>Request ID</mat-label>
+  <input  matInput [(ngModel)]="req_id">
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Manager ID</mat-label>
+  <input matInput [(ngModel)]="manager_id">
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Request Type</mat-label>
+  <mat-select value="selected" [(ngModel)]="req_type">
+    <mat-option value="one">Allocation</mat-option>
+    <mat-option value="two">Deallocation</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Requested Department</mat-label>
+  <input matInput [(ngModel)]="req_dept">
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Requested Job Title</mat-label>
+  <input matInput [(ngModel)]="req_job_title">
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label >Requested Employee ID</mat-label>
+  <input matInput [(ngModel)]="req_emp">
+</mat-form-field>
+<div class="col-md-12">
+  <button class="btn btn-success" (click)="submitform()">
+    Submit Request
+  </button>
 </div>
-
+</form>
+</div>
 </body>
-</html>
+<!-- <script>
+  var app = angular.module("myModule", []).controller("myCtrl", function($scope){
+    console.log($scope.empid);
+  });
+</script> -->
+
+
+ <!-- <mat-form-field appearance="fill">
+  <mat-label>Input</mat-label>
+  <input matInput [(ngModel)]="managerid">
+</mat-form-field>
+{{managerid}}
+<mat-form-field appearance="fill">
+  <mat-label>Select</mat-label>
+  <mat-select>
+    <mat-option value="one">First option</mat-option>
+    <mat-option value="two">Second option</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Textarea</mat-label>
+  <textarea matInput></textarea>
+</mat-form-field>
+<button class="btn btn-success" (click)="submitform()">
+ Submit Request
+</button> -->

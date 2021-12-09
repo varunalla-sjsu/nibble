@@ -14,9 +14,6 @@ module.exports =
       type: DataTypes.STRING,
       allowNull: false,
     },
-    emp_no: {
-      type: DataTypes.INTEGER,
-    },
     req_dept: {
       type: DataTypes.STRING,
     },
