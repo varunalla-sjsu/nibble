@@ -9,4 +9,7 @@ export class EmployeesService {
   fetchUsers(skip:number,limit:number){
     return this.http.get('/api/employee?skip='+skip+'&limit='+limit);
   }
+  fetchUser(employeeid:string){
+    return this.http.get('/api/employee/'+employeeid);
+  }
 }

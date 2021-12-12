@@ -16,4 +16,20 @@ router.get('/',ensureRole(['admin']),async (req,res)=>{
     }
     return res.send([]);
 });
+router.get('/:employeeid',ensureRole(['admin']),async (req,res)=>{
+    //skip
+    //limit
+   let employeeid=  req.params.employeeid;
+    try{
+        let employee=await userDataAccess.getEmployee(employeeid);
+        if(employee.length==1){
+            return res.send({employee:employee[0]});
+        }
+    }
+    catch(err){
+        console.log(err);
+        return res.status(503).send({});
+    }
+    return res.status(404).send({});
+});
 module.exports=router;

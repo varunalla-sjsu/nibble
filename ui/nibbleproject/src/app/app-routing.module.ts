@@ -9,9 +9,9 @@ import { AuthorizationGuard } from './guards/authorization.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CreateDepartmentComponent } from './components/create-department/create-department.component';
 import { ManagerdashboardComponent } from './components/managerdashboard/managerdashboard.component';
-
+import {EmployeedetailComponent} from './components/employeedetail/employeedetail.component';
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch:'full' },
   {
     path: 'app-hrdashboard',
     component: HrdashboardComponent,
@@ -45,6 +45,12 @@ const routes: Routes = [
     }
   },{
     path: 'createdept', component: CreateDepartmentComponent, canActivate: [AuthorizationGuard],
+    data: {
+      expectedRole: ['admin']
+    }
+  },
+  {
+    path: 'employee/:employeeid', component: EmployeedetailComponent, canActivate: [AuthorizationGuard],
     data: {
       expectedRole: ['admin']
     }
