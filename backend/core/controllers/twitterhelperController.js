@@ -7,16 +7,19 @@ dotenv.config();
 
 // router methods..
 router.get('/', async (req, res) => {
-
-        let token = await reqAuthentication();
-        console.log(token);
-        res.status(200).send({ message: "https://api.twitter.com/oauth/authenticate?oauth_token=" + token.oauth_token });
-   
-
+    if (req.query.hike)
+    {
+        this.hike = req.query.hike;
+    }
+    console.log("Twitter backend call");
+    console.log(this.hike);
+    let token = await reqAuthentication();
+    console.log(token);
+    // res.redirect("https://api.twitter.com/oauth/authenticate?oauth_token=" + token.oauth_token);
+    res.status(200).send({ message: "https://api.twitter.com/oauth/authenticate?oauth_token=" + token.oauth_token });
 });
 
 router.get('/auth', async (req, res) => {
-    debugger;
     console.log(req.query.oauth_token);
     console.log(req.query.oauth_verifier);
     let token = await getToken({ "oauth_token": req.query.oauth_token, "oauth_verifier": req.query.oauth_verifier });
@@ -25,15 +28,16 @@ router.get('/auth', async (req, res) => {
     // res.send("api working..");
     // this.client.access_token_key = token.accTkn;
     // this.client.access_token_secret = token.accTknSecret;
-   
-   
-     let writeToTwitterResp = await writeToTwitter(token, 7)
+
+
+    let writeToTwitterResp = await writeToTwitter(token, 7)
 
     if (writeToTwitterResp)
-        res.status(200).send({ status: 'success', tweet: writeToTwitterResp });
+        //  res.status(200).send({ status: 'success', tweet: writeToTwitterResp });
+        res.redirect('https://twitter.com/home');
     else
         res.status(200).send({ status: 'failure', tweet: null })
-   
+
 
 });
 
@@ -41,9 +45,9 @@ async function writeToTwitter(token, HikeRate) {
     this.client = new twitterlite(
         {
             consumer_key: process.env.apiKey,
-            consumer_secret: process.env.apiSecret, 
-            access_token_key : token.accTkn,
-            access_token_secret : token.accTknSecret
+            consumer_secret: process.env.apiSecret,
+            access_token_key: token.accTkn,
+            access_token_secret: token.accTknSecret
         }
     );
     console.log("Write to twitter api...");
@@ -54,10 +58,10 @@ async function writeToTwitter(token, HikeRate) {
     return resp;
 }
 async function getToken(tokenDetails) {
- 
-console.log("get token with details: " + tokenDetails.oauth_verifier);
 
-   let usrtokens = await this.client
+    console.log("get token with details: " + tokenDetails.oauth_verifier);
+
+    let usrtokens = await this.client
         .getAccessToken({
             oauth_verifier: tokenDetails.oauth_verifier,
             oauth_token: tokenDetails.oauth_token
@@ -82,8 +86,8 @@ console.log("get token with details: " + tokenDetails.oauth_verifier);
 
             // res.status(503).send({ "message": "could not process request" });
         });
-console.log(usrtokens);
-        return usrtokens;
+    console.log(usrtokens);
+    return usrtokens;
 }
 async function reqAuthentication() {
 
@@ -99,8 +103,8 @@ async function reqAuthentication() {
             return res;
 
         }).catch(err => {
-            console.log(err);
-            res.status(503).send({ "message": "could not process request" });
+            console.error(err);
+            // res.status(503).send({ "message": "could not process request" });
         });
     return tokens;
 }

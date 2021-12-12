@@ -17,7 +17,7 @@ router.get('/',ensureRole(['admin', 'manager']),async (req,res)=>{
         }
         console.log(query);
         try{
-            let rows =await userDataAccess.getEmployeesWithCriterion(query, skip,limit);
+            let rows =await userDataAccess.getEmployeesWithCriterion(query);
             console.log(rows);
             return res.send(rows);
         }
