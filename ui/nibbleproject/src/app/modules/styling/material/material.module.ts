@@ -20,8 +20,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatTabsModule} from '@angular/material/tabs';
 const materialModules=[
+  MatTabsModule,
   MatIconModule,
   MatToolbarModule,
   MatMenuModule,

@@ -36,6 +36,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CreateDepartmentComponent } from './components/create-department/create-department.component'; 
 import { ChartsModule } from 'ng2-charts';
 import {MatSelectModule} from '@angular/material/select';
+import { EmployeedetailComponent } from './components/employeedetail/employeedetail.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {MatSelectModule} from '@angular/material/select';
     DepartmentsListComponent,
     HrHomedashboardComponent,
     ProfileComponent,
-    CreateDepartmentComponent
+    CreateDepartmentComponent,
+    EmployeedetailComponent
   ],
   imports: [
     BrowserModule,

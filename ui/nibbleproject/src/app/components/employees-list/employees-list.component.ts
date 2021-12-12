@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { EmployeesService } from 'src/app/services/employees.service';
 interface Employee {
   emp_no: number;
@@ -26,7 +27,7 @@ export class EmployeesListComponent implements OnInit {
   dataSource: MatTableDataSource<Employee> = new MatTableDataSource();
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
-  constructor(private employeeService: EmployeesService) { }
+  constructor(private employeeService: EmployeesService,private _router: Router) { }
   ngAfterViewInit() {
     //this.dataSource.paginator = this.paginator;
   }
@@ -59,5 +60,9 @@ export class EmployeesListComponent implements OnInit {
     this.pageSize = event.pageSize;
     this.currentPage = event.pageIndex;
     this.loadData();
+  }
+  getEmployee(selectedRow:any){
+    console.log(selectedRow);
+    this._router.navigate(['employee/'+selectedRow.emp_no]);
   }
 }

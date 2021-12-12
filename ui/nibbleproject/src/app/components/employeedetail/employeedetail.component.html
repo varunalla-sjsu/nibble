@@ -1,0 +1,44 @@
+<div class="container">
+    <mat-tab-group mat-align-tabs="start">
+
+
+
+
+        <mat-tab label="Details">
+            <mat-card>
+                <mat-card-title>Employee : <span [innerText]="employeeid"></span><br/></mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+                <mat-card-content>
+                    <b>First Name</b><br/>
+                    <span [innerText]="employee.first_name"></span><br/>
+                    <b>Last Name</b><br/>
+                    <span [innerText]="employee.last_name"></span><br/>
+                    <b>Gender</b><br/>
+                    <span [innerText]="employee.gender"></span><br/>
+                    <b>Date Of Birth</b><br/>
+                    <span [innerText]="employee.birth_date"></span><br/>
+                    <b>Hire Date</b><br/>
+                    <span [innerText]="employee.hire_date"></span><br/>
+                    <b>Email</b><br/>
+                    <div *ngIf="employee.email==''||!employee.email">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Enter your email</mat-label>
+                            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                          </mat-form-field>
+                    </div>
+                    <div *ngIf="employee.email">
+                        <span [innerText]="employee.email"></span><br/>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                   
+                </mat-card-actions>
+              </mat-card>
+        </mat-tab>
+        <mat-tab label="Role">
+            Test2
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
