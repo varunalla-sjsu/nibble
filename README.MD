@@ -1,5 +1,5 @@
-# CMPE-281 - Enterprise 
-#Enterprise Resource Management
+# CMPE-272 - Enterprise SOFTWARE PLATFORMS
+## Project: Enterprise Resource Management
 
 # CMPE-281 - CLOUD TECHNOLOGIES 
 
