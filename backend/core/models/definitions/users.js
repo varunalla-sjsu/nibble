@@ -17,6 +17,10 @@ module.exports =
         type:DataTypes.INTEGER,
         allowNull:false,
         references: { model: 'employees', key: 'emp_no' }
+    },
+    authid:{
+        type:DataTypes.STRING,
+        allowNull:false   
     }
   },
   config: {

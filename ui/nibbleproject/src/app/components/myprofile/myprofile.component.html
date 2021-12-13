@@ -1,1 +1,35 @@
-<p>myprofile works!</p>
+<div class="container">
+    <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Profile">
+            <mat-card>
+                <mat-card-title>Profile Details</mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+                <mat-card-content>
+                    <b>First Name</b><br />
+                    <span [innerText]="employee.first_name"></span><br />
+                    <b>Last Name</b><br />
+                    <span [innerText]="employee.last_name"></span><br />
+                    <b>Gender</b><br />
+                    <span [innerText]="employee.gender"></span><br />
+                    <b>Date Of Birth</b><br />
+                    <span [innerText]="getDate(employee.birth_date)"></span><br />
+                    <b>Hire Date</b><br />
+                    <span [innerText]="getDate(employee.hire_date)"></span><br />
+                    <div *ngIf="employee.email">
+                        <b>Email</b><br />
+                        <span [innerText]="employee.email"></span><br />
+                    </div>
+                    <div *ngIf="employee.role">
+                        <b>Role</b><br />
+                        <span [innerText]="employee.role"></span><br />
+                    </div>
+                   
+                </mat-card-content>
+                <mat-card-actions align="end">
+
+                </mat-card-actions>
+            </mat-card>
+        </mat-tab>
+
+    </mat-tab-group>
+</div>

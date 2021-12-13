@@ -12,4 +12,13 @@ export class EmployeesService {
   fetchUser(employeeid:string){
     return this.http.get('/api/employee/'+employeeid);
   }
+  addEmail(employeeid:string,email:string){
+    return this.http.post('/api/employee/'+employeeid+'/addemail',{email:email});
+  }
+  updateRole(employeeid:string,email:string,role:string){
+    return this.http.post('/api/employee/'+employeeid+'/updaterole',{role:role,email:email});
+  }
+  getProfile(){
+    return this.http.get('/api/employee/currentuser');
+  }
 }

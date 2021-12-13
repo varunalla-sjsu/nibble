@@ -65,4 +65,5 @@ export class EmployeesListComponent implements OnInit {
     console.log(selectedRow);
     this._router.navigate(['employee/'+selectedRow.emp_no]);
   }
+ 
 }
