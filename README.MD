@@ -21,11 +21,11 @@ COMPUTER ENGINEERING DEPARTMENT
 https://web.nibbleproject.xyz/
 
 
-TECHNOLOGIES/PLATFORMS:
+##ARCHITECTURE:
+![Alt text](https://github.com/varunalla-sjsu/nibble/blob/main/screenshots/NibbleProject.jpeg"Project Architecture")
+
+##TECHNOLOGIES/PLATFORMS:
 ------
-
-
-
 FRONTEND: ANGULAR, ANGULAR MATERIAL
 
 
@@ -44,7 +44,7 @@ CI/CD: Jenkins.
 
 Dev Environement: VISUAL STUDIO CODE 
 
-ROLES:
+##ROLES:
 ----
 Admin
 Employee
