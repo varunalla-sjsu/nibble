@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeesService } from 'src/app/services/employees.service';
 import { EnumType } from 'typescript';
-import {Employee,Gender} from './../../models/user';
+import { Employee, Gender } from './../../models/user';
 interface Role {
   value: string,
   viewValue: string
@@ -32,7 +33,7 @@ export class EmployeedetailComponent implements OnInit {
   };
   constructor(private _router: Router,
     private _activatedRoute: ActivatedRoute,
-    private employeeService: EmployeesService) {
+    private employeeService: EmployeesService, private snackBar: MatSnackBar) {
 
   }
 
@@ -51,6 +52,11 @@ export class EmployeedetailComponent implements OnInit {
     },
       err => {
         console.log('Error Fetching Data');
+        this.snackBar.open("Could Not load data", 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center'
+        });
       });
   }
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -67,9 +73,27 @@ export class EmployeedetailComponent implements OnInit {
 
     this.employeeService.addEmail(this.employeeid, this.email.value).subscribe((result: any) => {
       console.log(result);
+      if (result.status == "success")
+        this.snackBar.open("updated email", 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center'
+        });
+      else {
+        this.snackBar.open("problem updating email", 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center'
+        });
+      }
     },
       err => {
         console.log('Error Fetching Data');
+        this.snackBar.open("Could Not add email", 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center'
+        });
       });
   }
   updateRole() {
@@ -77,9 +101,19 @@ export class EmployeedetailComponent implements OnInit {
 
     this.employeeService.updateRole(this.employeeid, this.email.value, this.employee.role).subscribe((result: any) => {
       console.log(result);
+      this.snackBar.open("updated role", 'dismiss', {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center'
+      });
     },
       err => {
         console.log('Error Fetching Data');
+        this.snackBar.open("Could Not update role ", 'dismiss', {
+          duration: 3000,
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center'
+        });
       });
   }
   getDate(date: string) {
