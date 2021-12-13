@@ -10,6 +10,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { CreateDepartmentComponent } from './components/create-department/create-department.component';
 import { ManagerdashboardComponent } from './components/managerdashboard/managerdashboard.component';
 import {EmployeedetailComponent} from './components/employeedetail/employeedetail.component';
+import { MyprofileComponent } from './components/myprofile/myprofile.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch:'full' },
   {
@@ -56,7 +57,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'profile', component: ProfileComponent
+    path: 'profile', component: MyprofileComponent
   }
 ];
 
