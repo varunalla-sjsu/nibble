@@ -8,10 +8,10 @@ PROFESSOR - Andrew Bond
 
 
 SUBMITTED BY : 
-Varun Alla (Team leader) 
-Aakanksha Gupta 
-Abhishek Yadav
-Hasini Reddy 
+1. Varun Alla (Team leader) 
+2. Aakanksha Gupta 
+3. Abhishek Yadav
+4. Hasini Reddy 
 
 
 SAN JOSE STATE UNIVERSITY 
@@ -21,38 +21,36 @@ COMPUTER ENGINEERING DEPARTMENT
 https://web.nibbleproject.xyz/
 
 
-##ARCHITECTURE:
-![Alt text](https://github.com/varunalla-sjsu/nibble/blob/main/screenshots/NibbleProject.jpeg"Project Architecture")
+## ARCHITECTURE:
+![unameafter](screenshots/NibbleProject.jpeg)
 
 ##TECHNOLOGIES/PLATFORMS:
 ------
-FRONTEND: ANGULAR, ANGULAR MATERIAL
+1. FRONTEND: ANGULAR, ANGULAR MATERIAL
 
+2. BACKEND: Node.js
 
-BACKEND: Node.js
+3. AWS SERVICES: AWS EC2, AWS LAMBDA, AWS RDS 
 
-AWS SERVICES: AWS EC2, AWS LAMBDA, AWS RDS 
+4.SOCIAL INTEGRATIONS: TWITTER
 
-SOCIAL INTEGRATIONS: TWITTER
+5. SSO: Auth0
 
-SSO: Auth0
+6. MFA: Duo
 
-MFA: Duo
+7. CI/CD: Jenkins. 
 
-CI/CD: Jenkins. 
+8. Dev Environement: VISUAL STUDIO CODE 
 
-
-Dev Environement: VISUAL STUDIO CODE 
-
-##ROLES:
+## ROLES:
 ----
-Admin
-Employee
-Manager 
-HR
+1. Admin
+2. Employee
+3. Manager 
+4. HR
 
-##BASIC SETUP STEPS: 
-###UI SETUP STEPS: 
+## BASIC SETUP STEPS: 
+### UI SETUP STEPS: 
 -----
 
 ```
